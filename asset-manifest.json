@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/football-data/static/css/main.6064b8be.css",
-    "main.js": "/football-data/static/js/main.71c39b59.js",
+    "main.js": "/football-data/static/js/main.2e30c196.js",
     "index.html": "/football-data/index.html",
     "main.6064b8be.css.map": "/football-data/static/css/main.6064b8be.css.map",
-    "main.71c39b59.js.map": "/football-data/static/js/main.71c39b59.js.map"
+    "main.2e30c196.js.map": "/football-data/static/js/main.2e30c196.js.map"
   },
   "entrypoints": [
     "static/css/main.6064b8be.css",
-    "static/js/main.71c39b59.js"
+    "static/js/main.2e30c196.js"
   ]
 }
