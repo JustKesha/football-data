@@ -1,0 +1,21 @@
+.breadcrumbs {
+  padding: 1.5rem var(--container-padding, 1rem);
+  font-size: 1rem;
+}
+
+.breadcrumbs a {
+  color: var(--text-primary, black);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs .current {
+  margin-left: 2.5px;
+}
+
+.separator {
+  color: var(--text-primary, black);
+}
