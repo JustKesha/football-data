@@ -17,14 +17,24 @@
 > Чтобы ключи не попали в репозиторий - в демо-версии используются [тестовые данные](src/api/mock/).  
 > Для работы с реальным API проект можно запустить локально.
 
+## Документация
+
 ### Требования
 
 - **Node.js** 18+ _(проверено на v18.16.0)_
 - **npm** 9+ _(проверено на 9.5.1)_
 
+#### Переменные Среды
+
+| Переменная  | Описание |
+| ------------- | ------------- |
+| REACT_APP_API_TOKEN  | API ключ для [api.football-data.org/v4/](https://www.football-data.org/client/home) |
+
 ### Запуск
 
-    npm start
-
-> [!NOTE]  
-> При трудностях с доступом к API с localhost воспользуйтесь веткой [cors-proxy](https://github.com/JustKesha/football-data/tree/cors-proxy).
+```
+node server
+```
+```
+npm start
+```
