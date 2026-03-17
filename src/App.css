@@ -1,0 +1,81 @@
+:root {
+  --container-max-width: 1200px;
+  --container-padding: 1.5rem;
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+  --border-radius-md: 10px;
+  --border-radius-sm: 6px;
+  --min-card-width: 220px;
+
+  --color-primary: #090E53;
+  --color-secondary: #626B8B;
+  --color-accent: #116ACC;
+
+  --bg-primary: #EFF0F1;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #fffffffa;
+  
+  --text-primary: #181818;
+  --text-secondary: #434343;
+  --text-tertiary: #757575;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary, white);
+  color: var(--text-primary, black);
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  max-width: var(--container-max-width, 1200px);
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  padding: var(--container-padding, 1rem);
+  width: 100%;
+}
+
+.unselectable {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+button {
+  padding: .75rem 1.25rem;
+  background: var(--bg-secondary, white);
+  color: var(--text-secondary, black);
+  border: 1px solid var(--text-tertiary, black);
+  border-radius: var(--border-radius-sm, 10px);
+  box-shadow: var(--shadow-sm, none);
+  font-size: 1rem;
+  transition-duration: .2s;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  box-shadow: none;
+}
+
+@media (max-width: 500px) {
+  :root {
+  --container-padding: 1rem;
+  }
+}
