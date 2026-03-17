@@ -1,4 +1,4 @@
-import { useLocation, matchPath } from 'react-router-dom';
+import { Link, useLocation, matchPath } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { fetchCompetition, fetchTeam } from '../../api';
 import './Breadcrumbs.css';
@@ -28,14 +28,14 @@ export function Breadcrumbs({ items: propItems, separator = ' > ' }: Props) {
   const getBreadcrumbItems = (): { label: string; path?: string }[] => {
     if (competitionMatch) {
       return [
-        { label: 'Лиги', path: '/football-data/competitions' },
+        { label: 'Лиги', path: '/competitions' },
         { label: competition?.name || 'Загрузка...' }
       ];
     }
     
     if (teamMatch) {
       return [
-        { label: 'Команды', path: '/football-data/teams' },
+        { label: 'Команды', path: '/teams' },
         { label: team?.name || 'Загрузка...' }
       ];
     }
@@ -53,7 +53,7 @@ export function Breadcrumbs({ items: propItems, separator = ' > ' }: Props) {
         <span key={index}>
           {index > 0 && <span className="separator">{separator}</span>}
           {item.path ? (
-            <a href={item.path}>{item.label}</a>
+            <Link to={item.path}>{item.label}</Link>
           ) : (
             <span className="current">{item.label}</span>
           )}
