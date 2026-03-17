@@ -1,5 +1,6 @@
 // GENERAL
-export const BASE_URL = 'https://api.football-data.org/v4';
+export const BASE_URL_PREFIX = 'http://localhost:8080/';
+export const BASE_URL = BASE_URL_PREFIX + 'https://api.football-data.org/v4';
 export const API_TOKEN = process.env.REACT_APP_API_TOKEN || '';
 
 // MOCK-DATA
