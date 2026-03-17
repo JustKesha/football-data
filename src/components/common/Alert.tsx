@@ -20,12 +20,20 @@ export function Alert({
 }: Props) {
   const navigate = useNavigate();
 
+  const handleClick = () => {
+    if (buttonLink === '') {
+      window.location.reload();
+    } else {
+      navigate(buttonLink as string);
+    }
+  };
+
   return (
     <div className={"alert" + (background ? " background" : "")}>
       {icon && <img src={icon} alt="alert icon" />}
       <h2>{title}</h2>
       <p>{message}</p>
-      {buttonText && <button onClick={() => navigate(buttonLink)}>
+      {buttonText && <button onClick={handleClick}>
         {buttonText}
       </button>}
     </div>

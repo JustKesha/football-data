@@ -47,8 +47,10 @@ export function CardGrid<T>({
     />;
   if (error)
     return <Alert
-      title="Неудалось загрузить команды"
+      title="Не удалось загрузить команды"
       message={`"${error.message}"`}
+      buttonText="Попробовать еще раз"
+      buttonLink=""
       icon="/images/icons/sad-request.png"
     />;
 
