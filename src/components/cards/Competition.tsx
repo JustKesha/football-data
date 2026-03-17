@@ -14,10 +14,10 @@ export function CompetitionCard({ competition }: Props) {
       onClick={() => navigate(`/competition/${competition.id}`)}
     >
       <img 
-        src={competition.emblem || "/images/placeholders/competition-emblem.png"} 
+        src={competition.emblem || process.env.PUBLIC_URL + "/images/placeholders/competition-emblem.png"} 
         alt={competition.name}
         onError={(e) => {
-          e.currentTarget.src = "/images/placeholders/competition-emblem.png";
+          e.currentTarget.src = process.env.PUBLIC_URL + "/images/placeholders/competition-emblem.png";
         }}
       />
       <h2>{competition.name}</h2>

@@ -23,7 +23,7 @@ const queryClient = new QueryClient({
 });
 
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/football-data">
     <QueryClientProvider client={queryClient}>
       <React.StrictMode>
         <App />

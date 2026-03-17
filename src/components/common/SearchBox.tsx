@@ -9,7 +9,7 @@ interface Props {
 export function SearchBox({ value, onChange, placeholder }: Props) {
   return (
     <div className="search-box">
-      <img src="/images/icons/search.svg" alt="search" className="search-icon unselectable" />
+      <img src={process.env.PUBLIC_URL + "/images/icons/search.svg"} alt="search" className="search-icon unselectable" />
       <input
         type="text"
         placeholder={placeholder || "Search"}

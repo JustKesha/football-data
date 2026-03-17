@@ -43,7 +43,7 @@ export function CardGrid<T>({
     return <Alert
       title="Загрузка..."
       message="Это займет всего пару секунд"
-      icon="/images/spinner.gif"
+      icon={`${process.env.PUBLIC_URL}/images/spinner.gif`}
     />;
   if (error)
     return <Alert
@@ -51,7 +51,7 @@ export function CardGrid<T>({
       message={`"${error.message}"`}
       buttonText="Попробовать еще раз"
       buttonLink=""
-      icon="/images/icons/sad-request.png"
+      icon={`${process.env.PUBLIC_URL}/images/icons/sad-request.png`}
     />;
 
   return (
@@ -59,7 +59,7 @@ export function CardGrid<T>({
       <SearchBox value={search} onChange={handleSearch} />
 
       {paginatedData.length === 0 ? (
-        <Alert message={emptyMessage} icon="/images/icons/bad-request.png" />
+        <Alert message={emptyMessage} icon={`${process.env.PUBLIC_URL}/images/icons/bad-request.png`} />
       ) : (
         <>
           <div className="card-grid">

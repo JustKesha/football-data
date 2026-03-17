@@ -11,6 +11,7 @@ interface Props {
   entityId: string;
   backLink: string;
   backText: string;
+  itemsPerPage?: number;
 }
 
 export function MatchesTable({ 
@@ -18,11 +19,11 @@ export function MatchesTable({
   queryFn, 
   entityId,
   backLink,
-  backText 
+  backText,
+  itemsPerPage = 10
 }: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
-  const ITEMS_PER_PAGE = 10;
   
   const dateFrom = searchParams.get('dateFrom') || '';
   const dateTo = searchParams.get('dateTo') || '';
@@ -55,16 +56,16 @@ export function MatchesTable({
     return <Alert
       title="Загрузка..."
       message="Это займет всего пару секунд"
-      icon="/images/spinner.gif"
+      icon={`${process.env.PUBLIC_URL}/images/spinner.gif`}
       background={true}
     />;
   if (error)
     return <Alert
-      title="Не удалось загрузить команды"
+      title="Не удалось загрузить матчи"
       message={`"${error.message}"`}
       buttonText="Попробовать еще раз"
       buttonLink=""
-      icon="/images/icons/sad-request.png"
+      icon={`${process.env.PUBLIC_URL}/images/icons/sad-request.png`}
       background={true}
     />;
 
@@ -91,14 +92,14 @@ export function MatchesTable({
           buttonText={backText}
           buttonLink={backLink}
           background={true}
-          icon="/images/icons/bad-request.png"
+          icon={`${process.env.PUBLIC_URL}/images/icons/bad-request.png`}
         />
       ) : (
         <>
           <div className="matches-table-wrapper">
             <table className="matches-table">
               <tbody>
-                {matches.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
+                {matches.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
                   .map(match => (
                     <tr key={match.id}>
                       <td>{format(new Date(match.utcDate), 'dd.MM.yyyy')}</td>
@@ -113,7 +114,7 @@ export function MatchesTable({
           </div>
           <Pagination
             currentPage={currentPage}
-            totalPages={Math.ceil(matches.length / ITEMS_PER_PAGE)}
+            totalPages={Math.ceil(matches.length / itemsPerPage)}
             onPageChange={setCurrentPage}
           />
         </>

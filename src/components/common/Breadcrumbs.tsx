@@ -28,14 +28,14 @@ export function Breadcrumbs({ items: propItems, separator = ' > ' }: Props) {
   const getBreadcrumbItems = (): { label: string; path?: string }[] => {
     if (competitionMatch) {
       return [
-        { label: 'Лиги', path: '/competitions' },
+        { label: 'Лиги', path: '/football-data/competitions' },
         { label: competition?.name || 'Загрузка...' }
       ];
     }
     
     if (teamMatch) {
       return [
-        { label: 'Команды', path: '/teams' },
+        { label: 'Команды', path: '/football-data/teams' },
         { label: team?.name || 'Загрузка...' }
       ];
     }

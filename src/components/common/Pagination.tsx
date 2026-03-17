@@ -50,7 +50,7 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Props) {
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        <img src="/images/icons/arrow-left.svg" alt="Previous" />
+        <img src={process.env.PUBLIC_URL + "/images/icons/arrow-left.svg"} alt="Previous" />
       </button>
       
       {getPageNumbers().map((page, index) => (
@@ -83,7 +83,7 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Props) {
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        <img src="/images/icons/arrow-right.svg" alt="Next" />
+        <img src={process.env.PUBLIC_URL + "/images/icons/arrow-right.svg"} alt="Next" />
       </button>
     </div>
   );
