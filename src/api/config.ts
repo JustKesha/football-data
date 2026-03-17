@@ -4,5 +4,6 @@ export const BASE_URL = BASE_URL_PREFIX + 'https://api.football-data.org/v4';
 export const API_TOKEN = process.env.REACT_APP_API_TOKEN || '';
 
 // MOCK-DATA
+// NOTE Make sure to manually set to true when deploying to GH Pages
 export const USE_MOCK_DATA = !API_TOKEN;
 if (USE_MOCK_DATA) console.warn(`API token for ${BASE_URL} not found, switching to mock data`)
