@@ -14,10 +14,10 @@ export function TeamCard({ team }: Props) {
       onClick={() => navigate(`/team/${team.id}`)}
     >
       <img 
-        src={team.crest || "/images/placeholders/team-crest.png"} 
+        src={team.crest || process.env.PUBLIC_URL + "/images/placeholders/team-crest.png"} 
         alt={team.name || "-"}
         onError={(e) => {
-          e.currentTarget.src = "/images/placeholders/team-crest.png";
+          e.currentTarget.src = process.env.PUBLIC_URL + "/images/placeholders/team-crest.png";
         }}
       />
       <h3>{team.name}</h3>

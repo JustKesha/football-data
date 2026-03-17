@@ -15,7 +15,7 @@ export function Header({ breadcrumbs }: Props) {
     <header className="header">
       <div className="header-content">
         <div className="logo" onClick={() => navigate('/')}>
-          <img src="/images/logo.png" alt="logo" />
+          <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="logo" />
         </div>
         <nav className="nav">
           <button 
