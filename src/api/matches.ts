@@ -3,6 +3,35 @@ import { Match } from '../types';
 import mockCompetitionData from './mock/competition-matches.json';
 import mockTeamData from './mock/team-matches.json';
 
+function getMatchParams(dateFrom: string, dateTo: string): URLSearchParams {
+  const params = new URLSearchParams();
+
+  if (!dateFrom && !dateTo) return params;
+
+  // NOTE: API requires both dateFrom and dateTo parameters.
+  // The period between them should be reasonable (~1 year).
+  if (dateFrom && !dateTo) {
+    const date = new Date(dateFrom);
+
+    date.setFullYear(date.getFullYear() + 1);
+
+    params.append('dateFrom', dateFrom);
+    params.append('dateTo', date.toISOString().split('T')[0]);
+  } else if (!dateFrom && dateTo) {
+    const date = new Date(dateTo);
+
+    date.setFullYear(date.getFullYear() - 1);
+
+    params.append('dateFrom', date.toISOString().split('T')[0]);
+    params.append('dateTo', dateTo);
+  } else {
+    params.append('dateFrom', dateFrom);
+    params.append('dateTo', dateTo);
+  }
+
+  return params;
+}
+
 export async function fetchCompetitionMatches(
   competitionId: string,
   dateFrom: string,
@@ -24,10 +53,7 @@ export async function fetchCompetitionMatches(
     return filtered;
   }
 
-  const params = new URLSearchParams();
-  if (dateFrom) params.append('dateFrom', dateFrom);
-  if (dateTo) params.append('dateTo', dateTo);
-
+  const params = getMatchParams(dateFrom, dateTo);
   const response = await fetch(
     `${BASE_URL}/competitions/${competitionId}/matches?${params}`,
     { headers: { 'X-Auth-Token': API_TOKEN }, }
@@ -63,10 +89,7 @@ export async function fetchTeamMatches(
     );
   }
 
-  const params = new URLSearchParams();
-  if (dateFrom) params.append('dateFrom', dateFrom);
-  if (dateTo) params.append('dateTo', dateTo);
-
+  const params = getMatchParams(dateFrom, dateTo);
   const response = await fetch(
     `${BASE_URL}/teams/${teamId}/matches?${params}`,
     { headers: { 'X-Auth-Token': API_TOKEN } }
